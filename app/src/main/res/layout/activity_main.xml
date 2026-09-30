@@ -23,4 +23,16 @@
         android:id="@+id/btnSetTimer"
         android:text="Set Timer"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnOpenURL"
+        android:text="Open URL"/>
+
+    <EditText
+        android:id="@+id/etURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan URL"/>
+
 </LinearLayout>
