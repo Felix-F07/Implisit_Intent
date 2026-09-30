@@ -11,4 +11,16 @@
         android:id="@+id/btnKirimPesan"
         android:text="Kirim Pesan"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSetAlarm"
+        android:text="Set Alarm"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSetTimer"
+        android:text="Set Timer"/>
+
 </LinearLayout>

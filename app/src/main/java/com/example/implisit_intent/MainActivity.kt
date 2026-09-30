@@ -2,6 +2,7 @@ package com.example.implisit_intent
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -13,13 +14,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        val btnKirimPesan = findViewById<Button>(R.id.btnKirimPesan)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        val btnKirimPesan = findViewById<Button>(R.id.btnKirimPesan)
         btnKirimPesan.setOnClickListener {
             val _sendIntent = Intent().apply{
                 action= Intent.ACTION_SEND
@@ -32,5 +33,28 @@ class MainActivity : AppCompatActivity() {
                 startActivity(Intent.createChooser(_sendIntent,"PILIH APLIKASI"))
             }
         }
+
+        val btnSetAlarm = findViewById<Button>(R.id.btnSetAlarm)
+        btnSetAlarm.setOnClickListener {
+            val _alarmIntent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+                putExtra(AlarmClock.EXTRA_MESSAGE,"COBA ALARM")
+                putExtra(AlarmClock.EXTRA_HOUR,20)
+                putExtra(AlarmClock.EXTRA_MINUTES,15)
+                putExtra(AlarmClock.EXTRA_SKIP_UI,true)
+            }
+            startActivity(_alarmIntent)
+        }
+
+        val btnSetTimer = findViewById<Button>(R.id.btnSetTimer)
+        btnSetTimer.setOnClickListener {
+            val _timerIntent = Intent(AlarmClock.ACTION_SET_TIMER).apply{
+                putExtra(AlarmClock.EXTRA_MESSAGE,"COBA ALARM")
+                putExtra(AlarmClock.EXTRA_LENGTH,20)
+                putExtra(AlarmClock.EXTRA_SKIP_UI,true)
+            }
+            startActivity(_timerIntent)
+        }
+
+
     }
 }
