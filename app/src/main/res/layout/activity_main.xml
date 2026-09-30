@@ -35,4 +35,10 @@
         android:layout_height="wrap_content"
         android:hint="Masukkan URL"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnSetEvent"
+        android:text="Set Event"/>
+
 </LinearLayout>
